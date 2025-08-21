@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Extractor",
+  "version": "1.0.0",
+  "description": "Extract LinkedIn profiles with a single click",
+  "permissions": [
+    "sidePanel",
+    "scripting", 
+    "tabs",
+    "activeTab",
+    "notifications",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.linkedin.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "LinkedIn Extractor",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

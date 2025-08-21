@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fixed Side Panel - 800px width, non-resizable */
+html {
+  width: 800px !important;
+  min-width: 800px !important;
+  max-width: 800px !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  resize: none !important;
+  overflow: hidden !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 800px !important;
+  min-width: 800px !important;
+  max-width: 800px !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  resize: none !important;
+  position: fixed !important;
+}
+
+#root {
+  width: 800px !important;
+  min-width: 800px !important;
+  max-width: 800px !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  resize: none !important;
+  position: relative !important;
+}
+
+/* Prevent any resizing mechanisms */
+* {
+  resize: none !important;
+}
+
+/* Reset all elements to use border-box */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styles for side panel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #5a6578;
+}
+
+/* Fixed Side Panel container */
+.app-container {
+  width: 800px !important;
+  min-width: 800px !important;
+  max-width: 800px !important;
+  height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Remove all responsive breakpoints - keep fixed width */
+/* Sidebar styles for fixed 800px layout */
+.sidebar-collapsed {
+  width: 64px !important;
+  min-width: 64px !important;
+  max-width: 64px !important;
+}
+
+.sidebar-expanded {
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+}
+
+/* Ensure content adapts to fixed side panel */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh !important;
+  width: calc(800px - 64px) !important; /* Adjust based on sidebar state */
+}
+
+.main-content.sidebar-expanded {
+  width: calc(800px - 280px) !important;
+}
+
+/* Side panel specific animations */
+.sidebar-transition {
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Optimize for side panel performance */
+.side-panel-optimized {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Side panel specific button styles */
+.side-panel-button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Font settings for fixed width panel */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Side panel specific loading states */
+.side-panel-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 800px !important;
+}
+
+/* Side panel header adjustments */
+.side-panel-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100% !important;
+}
+
+.dark .side-panel-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Side panel content spacing */
+.side-panel-content {
+  padding: 16px;
+  height: calc(100vh - 60px); /* Adjust based on header height */
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100% !important;
+}
+
+/* Fixed width optimized styles */
+.side-panel-optimized {
+  font-size: 14px;
+}
+
+.side-panel-loading {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Ensure proper scrolling in fixed side panel */
+.side-panel-content {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.side-panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.side-panel-content::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 3px;
+}
+
+.side-panel-content::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.side-panel-content::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Dark mode scrollbar */
+.dark .side-panel-content {
+  scrollbar-color: #4a5568 #2d3748;
+}
+
+.dark .side-panel-content::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark .side-panel-content::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+.dark .side-panel-content::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Fixed width typography */
+.side-panel-optimized .text-3xl {
+  font-size: 1.5rem;
+}
+
+.side-panel-optimized .text-4xl {
+  font-size: 2rem;
+}
+
+.side-panel-optimized .text-5xl {
+  font-size: 2.5rem;
+}
+
+/* Ensure proper layout containment */
+.app-container {
+  contain: layout style paint;
+}
+
+.side-panel-mode {
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 800px !important;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.side-panel-loading .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Button spacing for fixed width */
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.25rem;
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.5rem;
+}
+
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.75rem;
+}
+
+/* Ensure text doesn't overflow in fixed panel */
+.side-panel-optimized h1,
+.side-panel-optimized h2,
+.side-panel-optimized h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Card styling for fixed width */
+.card {
+  padding: 1rem;
+}
+
+.card h3 {
+  font-size: 1.125rem;
+}
+
+.card p {
+  font-size: 0.875rem;
+}
+
+/* Prevent user selection of resize handles */
+::-webkit-resizer {
+  display: none !important;
+}
+
+/* Disable drag and drop that might affect layout */
+* {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+}
